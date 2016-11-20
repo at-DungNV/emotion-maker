@@ -1,0 +1,13 @@
+{
+    "name": "php2/emotion-maker",
+    "description": "demo integrate module to laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dungnv",
+            "email": "nobinguyen94@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
