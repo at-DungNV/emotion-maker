@@ -3,9 +3,18 @@
 	<head>
 		<title>Emotion Maker</title>
 		<meta charset="utf-8" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-    </script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.selection').on("click", function(){
+          var link_img = $(this).text();
+          console.log("da vo");
+          $("#imgurl").val(link_img);
+          //post code
+        })
+      });
+    </script>
 		<style type="text/css">
       body {
         margin: 0 auto;
@@ -109,13 +118,6 @@
 			?>
 				<script type="text/javascript">
           var url = '{{ url('emotion/show') }}';
-
-          $("a").click(function(){
-    				$link_img = $(this).text();
-    				$("#imgurl").val($link_img);
-
-    			});
-
 					$(function(){
 						<?php
 			    		for ($i=0; $i < count($arGet) ; $i++) {
@@ -246,7 +248,7 @@
     <div class="form-group">
   		<form class="form-group" method="post" action="{{ route('emotion.submit') }}">
         <div class="col-md-5">
-        <input type="text" class="form-control" name="urlImage" size="70px" id="urlimg" placeholder="hãy nhập url images" />
+        <input type="text" class="form-control" name="urlImage" size="70px" id="imgurl"/>
         </div>
         <input type="submit" class="btn btn-default col-md-1" name="submit" value="submit" />
   		</form>
