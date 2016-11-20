@@ -1,6 +1,6 @@
 <?php
 
-namespace DungNV\Timezones;
+namespace PHP2\EmotionMaker;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
@@ -14,22 +14,22 @@ class EmotionController extends Controller
     public function submit(Request $request)
     {
       $img = $request->imgurl;
-      return view('dungnv::view', compact('img'));
+      return view('php2::view', compact('img'));
     }
 
     public function index()
     {
-        return view('dungnv::view');
+        return view('php2::view');
     }
     public function index1()
     {
-        return view('dungnv::view1');
+        return view('php2::view1');
     }
 
 
     public function emotion()
     {
-        // return view('dungnv::view');
+        // return view('php2::view');
     }
 
 

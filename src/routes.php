@@ -1,28 +1,24 @@
 <?php
 
 
-Route::get('dungnv/{timezone?}', 'dungnv\timezones\TimezonesController@index');
-
-Route::get('api/demo', 'dungnv\timezones\TimezonesController@demo');
-
 Route::get('emotion/index', [
-    'as' => 'emotion.index', 'uses' => 'dungnv\timezones\EmotionController@index'
+    'as' => 'emotion.index', 'uses' => 'php2\emotion-maker\EmotionController@index'
 ]);
 
 Route::get('emotion/index1', [
-    'as' => 'emotion.index1', 'uses' => 'dungnv\timezones\EmotionController@index1'
+    'as' => 'emotion.index1', 'uses' => 'php2\emotion-maker\EmotionController@index1'
 ]);
 
 
 Route::post('emotion/submit', [
-    'as' => 'emotion.submit', 'uses' => 'dungnv\timezones\EmotionController@submit'
+    'as' => 'emotion.submit', 'uses' => 'php2\emotion-maker\EmotionController@submit'
 ]);
 
 Route::get('emotion/show/{emotion?}', [
-    'as' => 'emotion.show', 'uses' => 'dungnv\timezones\EmotionController@show'
+    'as' => 'emotion.show', 'uses' => 'php2\emotion-maker\EmotionController@show'
 ]);
 
 
 Route::get('emotion/emotion', [
-    'as' => 'emotion.emotion', 'uses' => 'dungnv\timezones\EmotionController@emotion'
+    'as' => 'emotion.emotion', 'uses' => 'php2\emotion-maker\EmotionController@emotion'
 ]);
