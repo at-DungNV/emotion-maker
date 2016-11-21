@@ -70,13 +70,27 @@
         color: #222;
         text-shadow: 0px 2px 3px #555;
       }
+      header, footer {
+        padding: 1em;
+        color: white;
+        background-color: rgba(24, 142, 214, 0.72);
+        clear: left;
+        text-align: center;
+      }
+
+
 		</style>
 	</head>
 	<body>
-    <div class="alert alert-info" style="border: 0px; margin-top: 0px">
+    <!--<div class="alert alert-info" style="border: 0px; margin-top: 0px">
     		<h2>PHP2 Team</h2>
   	</div>
-    <div class="container">
+  -->
+  <header>
+   <h2> Emotion Maker</h2>
+  </header>
+  <br/>
+    <div class="container" style="min-height: 400px">
 		<?php
 			// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 			require_once 'HTTP/Request2.php';
@@ -156,113 +170,123 @@
 				    	?>
 					});
 				</script>
-    <div class="row">
-				<div class="relative">
-			  	<img id="imagesFace" width="550" height="400px" src="<?php echo $urlImage;?>" />
-    			<?php
-    				$size = getimagesize($urlImage);
-    				foreach ($arGet as $k => $arFace) {
-    			?>
-    				  	<div class="borderFace borderFace<?php echo $k;?>"
-    				  			style="top: <?php echo $arFace['faceRectangle']['top']*400/$size[1]; ?>px;
-    									left: <?php echo $arFace['faceRectangle']['left']*550/$size[0]; ?>px;
-    									width: <?php echo $arFace['faceRectangle']['width']*550/$size[0]; ?>px;
-    									height: <?php echo $arFace['faceRectangle']['height']*400/$size[1]; ?>px;
-    				  			"
-    				  	>
+        <div class="row">
+          <div class="relative">
+            <img id="imagesFace" width="550" height="400px" src="<?php echo $urlImage;?>" />
+        			<?php
+        				$size = getimagesize($urlImage);
+        				foreach ($arGet as $k => $arFace) {
+        			?>
+        				  	<div class="borderFace borderFace<?php echo $k;?>"
+        				  			style="top: <?php echo $arFace['faceRectangle']['top']*400/$size[1]; ?>px;
+        									left: <?php echo $arFace['faceRectangle']['left']*550/$size[0]; ?>px;
+        									width: <?php echo $arFace['faceRectangle']['width']*550/$size[0]; ?>px;
+        									height: <?php echo $arFace['faceRectangle']['height']*400/$size[1]; ?>px;
+        				  			"
+        				  	>
 
-    				  	</div>
-    				  	<div class="detail detail<?php echo $k;?>"
-    				  			style="top: <?php echo $arFace['faceRectangle']['top']*400/$size[1]; ?>px;
-    									left: <?php echo ($arFace['faceRectangle']['left']*550/$size[0]+$arFace['faceRectangle']['width']*550/$size[0]); ?>px;
-    							"
+        				  	</div>
+        				  	<div class="detail detail<?php echo $k;?>"
+        				  			style="top: <?php echo $arFace['faceRectangle']['top']*400/$size[1]; ?>px;
+        									left: <?php echo ($arFace['faceRectangle']['left']*550/$size[0]+$arFace['faceRectangle']['width']*550/$size[0]); ?>px;
+        							"
 
-    				  	>
-    				  			<p>
-    				  				<span>anger</span>
-    				  				<?php echo $arFace['scores']['anger'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>contempt</span>
-    				  				<?php echo $arFace['scores']['contempt'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>disgust</span>
-    				  				<?php echo $arFace['scores']['disgust'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>fear</span>
-    				  				<?php echo $arFace['scores']['fear'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>happiness</span>
-    				  				<?php echo $arFace['scores']['happiness'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>neutral</span>
-    				  				<?php echo $arFace['scores']['neutral'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>sadness</span>
-    				  				<?php echo $arFace['scores']['sadness'];?>
-    				  			</p>
-    				  			<p>
-    				  				<span>surprise</span>
-    				  				<?php echo $arFace['scores']['surprise'];?>
-    				  			</p>
-    				  	</div>
+        				  	>
+        				  			<p>
+        				  				<span>anger</span>
+        				  				<?php echo $arFace['scores']['anger'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>contempt</span>
+        				  				<?php echo $arFace['scores']['contempt'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>disgust</span>
+        				  				<?php echo $arFace['scores']['disgust'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>fear</span>
+        				  				<?php echo $arFace['scores']['fear'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>happiness</span>
+        				  				<?php echo $arFace['scores']['happiness'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>neutral</span>
+        				  				<?php echo $arFace['scores']['neutral'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>sadness</span>
+        				  				<?php echo $arFace['scores']['sadness'];?>
+        				  			</p>
+        				  			<p>
+        				  				<span>surprise</span>
+        				  				<?php echo $arFace['scores']['surprise'];?>
+        				  			</p>
+        				  	</div>
+        			<?php
+        				}
+        			?>
+    				</div>
+
+            <div class="list" style="padding:10px; overflow: auto;" id="list">
+              <div class="alert alert-info" id="detect">
+              </div>
+              <div class="panel panel-info">
+                <div class="panel-heading" id="maxim"></div>
+                <div class="panel-body">
+                  <div class="list-group" id="advice" style="text-align:center">
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-info">
+                <div class="panel-heading" id="para"></div>
+                <div class="panel-body">
+                  <div class="list-group" id="list-table">
+                  </div>
+                </div>
+              </div>
+            </div>
     			<?php
     				}
-    			?>
-				</div>
+    				catch (HttpException $ex)
+    				{
+    					echo $ex;
+    				}
+    			}
 
-			<?php
-				}
-				catch (HttpException $ex)
-				{
-					echo $ex;
-				}
-			}
-		?>
 
-		  <div class="list" style="padding:10px; overflow: auto;" id="list">
-      <div class="alert alert-info" id="detect">
-      </div>
-      <div class="panel panel-info">
-      <div class="panel-heading" id="maxim"></div>
-      <div class="panel-body">
-        <div class="list-group" id="advice" style="text-align:center">
+    		?>
+
         </div>
-      </div>
-      </div>
-      <div class="panel panel-info">
-      <div class="panel-heading" id="para"></div>
-      <div class="panel-body">
-        <div class="list-group" id="list-table">
-        </div>
-      </div>
-      </div>
-		</div>
-    </div>
     <div style="clear:both;"></div>
     <div class="form-group">
   		<form class="form-group" method="post" action="{{ route('emotion.submit') }}">
         <div class="col-md-5">
         <input type="text" class="form-control" name="urlImage" size="70px" id="imgurl"/>
         </div>
-        <input type="submit" class="btn btn-default col-md-1" name="submit" value="submit" />
+        <input type="submit" class="btn btn-danger col-md-1" name="submit" value="submit" />
   		</form>
     </div>
     <br>
-    <h3>Some images demo</h3>
-  	<a class="selection">https://portalstoragewuprod.azureedge.net/emotion/recognition1.jpg</a><br>
-  	<a class="selection">https://portalstoragewuprod.azureedge.net/face/demo/detection%205.jpg</a><br>
-  	<a class="selection">https://portalstoragewuprod.azureedge.net/emotion/recognition2.jpg</a><br>
-  	<a class="selection">https://portalstoragewuprod.azureedge.net/emotion/recognition3.jpg</a><br>
-  	<a class="selection">https://portalstoragewuprod.azureedge.net/emotion/recognition4.jpg</a><br>
+    <br>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Some images demo
+      </div>
+      <div class="panel-body">
+        <div class="list-group">
+          <a class="selection list-group-item">https://portalstoragewuprod.azureedge.net/emotion/recognition1.jpg</a>
+          <a class="selection list-group-item">https://portalstoragewuprod.azureedge.net/face/demo/detection%205.jpg</a>
+          <a class="selection list-group-item">https://portalstoragewuprod.azureedge.net/emotion/recognition2.jpg</a>
+          <a class="selection list-group-item">https://portalstoragewuprod.azureedge.net/emotion/recognition3.jpg</a>
+          <a class="selection list-group-item">https://portalstoragewuprod.azureedge.net/emotion/recognition4.jpg</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="alert alert-info" style="border: 0px; margin-top: 5px; margin-bottom: 0px;">
-  	Lien he nhom PHP2
-	</div>
+  <br/>
+  <footer>PHP2 Team</footer>
 	</body>
 </html>
